@@ -1,8 +1,4 @@
-import os
-os.mkdir('/etc/modprobe.d')
-print ("Ensuring mounting of cramfs filesystems is disabled")
-os.system("modprobe -n -v cramfs")
-os.system("install /bin/true")
-os.system("lsmod | grep cramfs")
-with open('/etc/modprobe.d/CIS.conf', 'w+') as file:
-    file.write('install cramfs /bin/true')
+print ("Non-Automated Ubuntu Auditing System")
+print ("This script is provided as is with no warranties what so ever")
+print ("Created by Anthony Saldana-Valle using CIS Ubuntu 16.04 Benchmark v1.1.0")
+wait = input("PRESS ENTER TO CONTINUE.")
