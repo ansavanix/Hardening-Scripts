@@ -12,6 +12,7 @@ def checkfs(fs):
     print("Checking " + fs)
     cmd("modprobe -n -v " + fs)
     cmd("lsmod | grep " + fs)
+    f.write("install " + fs + "/bin/true\n")
     cmd("rmmod " + fs)
 
 import os
@@ -28,4 +29,4 @@ checkfs("jffs2")
 checkfs("hfs")
 checkfs("hfsplus")
 checkfs("udf")
-
+f.close
