@@ -14,6 +14,14 @@ def checkfs(fs):
     cmd("lsmod | grep " + fs)
     f.write("install " + fs + " /bin/true\r\n")
     cmd("rmmod " + fs)
+    
+def checkpartition(partition):
+    cmd("mount | grep " + partition)
+    
+def fixpartition(partition):
+    cmd("mount -o remount,nodev,nosuid " + partition)
+        
+    
 
 import os
 clear()
@@ -30,5 +38,14 @@ checkfs("hfs")
 checkfs("hfsplus")
 checkfs("udf")
 f.close
-cmd("mount | grep /tmp")
-cmd("mount =o remount,nodev /tmp")
+print("Ensuring Partition Security")
+checkpartition("/tmp")
+fixpartition("/tmp")
+checkpartition("/var")
+fixpartition("/var")
+checkpartition("/var/tmp")
+cmd("mount -o remount,nodev,nosuid,noexec /var/tmp")
+checkpartition("/var/log")
+checkpartition("/var/log/audit")
+checkpartition("/home")
+cmd("mount -o remount,nodev /home")
