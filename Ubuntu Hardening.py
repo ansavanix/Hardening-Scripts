@@ -12,7 +12,7 @@ def checkfs(fs):
     print("Checking " + fs)
     cmd("modprobe -n -v " + fs)
     cmd("lsmod | grep " + fs)
-    f.write("install " + fs + "/bin/true\n")
+    f.write("install " + fs + " /bin/true\r\n")
     cmd("rmmod " + fs)
 
 import os
@@ -22,7 +22,7 @@ print ("This script is provided as is with no warranties or guarantees what so e
 print ("Created by Anthony Saldana-Valle based off CIS Ubuntu 16.04 Benchmark v1.1.0")
 pause()
 print("CHECKING FILESYSTEMS")
-f= open("/etc/modprobe.d/cis.conf","w+")
+f= open("/etc/modprobe.d/CIS.conf","w+")
 checkfs("cramfs")
 checkfs("freevxfs")
 checkfs("jffs2")
@@ -30,3 +30,5 @@ checkfs("hfs")
 checkfs("hfsplus")
 checkfs("udf")
 f.close
+cmd("mount | grep /tmp")
+cmd("mount =o remount,nodev /tmp")
