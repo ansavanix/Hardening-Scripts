@@ -1,12 +1,8 @@
 import os
+os.mkdir('/etc/modprobe.d')
 print ("Ensuring mounting of cramfs filesystems is disabled")
 os.system("modprobe -n -v cramfs")
 os.system("install /bin/true")
 os.system("lsmod | grep cramfs")
-print ("If there is a cramfs device mounted run 'install cramfms /bin/true' then 'rmmod cramfs'")
-print ("Starting Next Task...")
-print ("Ensuring mounting of freevxfs filesystems is disabled")
-os.system("modprobe -n -v freevxfs")
-os.system("install /bin/true")
-os.system("lsmod | grep freevxfs")
-print ("If there is a cramfs device mounted run 'install freevxfs /bin/true' then 'rmmod freevxfs'")
+with open('/etc/modprobe.d/CIS.conf', 'w+') as file:
+    file.write('install cramfs /bin/true')
