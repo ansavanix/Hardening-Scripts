@@ -31,5 +31,7 @@ checkfs("freevxfs")
 checkfs("jffs2")
 checkfs("hfs")
 checkfs("hfsplus")
+checkfs("squashfs")
 checkfs("udf")
+checkfs("vfat")
 f.close
