@@ -22,13 +22,15 @@ def fixpartition(partition):
     cmd("mount -o remount,nodev,nosuid " + partition)
         
     
-
+#This build is still in testing.
+#Only tested on ubuntu.
 import os
 clear()
 print ("Non-Automated Ubuntu Auditing System")
-print ("This script is provided as is with no warranties or guarantees what so ever")
-print ("Created by Anthony Saldana-Valle based off CIS Ubuntu 16.04 Benchmark v1.1.0")
-print ("This script should be ran as root")
+print ("This script is provided as is with no warranties or guarantees what so ever.")
+print ("Created by Anthony Saldana-Valle based off CIS Ubuntu 16.04 Benchmark v1.1.0.")
+print ("This script should be ran as root.")
+print ("Have a second terminal open in case manual remediation is required.")
 pause()
 print("CHECKING FILESYSTEMS")
 f= open("/etc/modprobe.d/CIS.conf","w+")
@@ -115,3 +117,5 @@ print("Verifying prelink is not installed")
 cmd("dpkg -s prelink")
 cmd("prelink -ua")
 cmd("apt-get purge prelink")
+#
+
