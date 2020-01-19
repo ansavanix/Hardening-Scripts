@@ -15,10 +15,10 @@ def checkfs(fs):
     cmd("rmmod " + fs)
         
     
-
+import subprocess
 import os
 clear()
-print (" Generic Automated Linux Auditing System")
+print ("Generic Automated Linux Auditing System")
 print ("This script is provided as is with no warranties or guarantees what so ever.")
 print ("Created by Anthony Saldana-Valle based off CIS Independent Linux Benchmark v2.0.0.")
 print ("This script should be ran as root.")
@@ -35,3 +35,4 @@ checkfs("squashfs")
 checkfs("udf")
 checkfs("vfat")
 f.close
+
