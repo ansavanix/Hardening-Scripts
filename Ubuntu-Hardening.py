@@ -117,5 +117,5 @@ print("Verifying prelink is not installed")
 cmd("dpkg -s prelink")
 cmd("prelink -ua")
 cmd("apt-get purge prelink")
-#
+
 
